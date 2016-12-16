@@ -1,0 +1,24 @@
+{{#with post}}
+    <form action="/admin/post/{{slug}}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" placeholder="Title" name="title" value="{{title}}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" placeholder="Description" name="description">{{description}}</textarea>
+        </div>
+        <div class="checkbox">
+            <label>
+                {{#if enabled}}
+                    <input type="checkbox" name="enabled" checked value="true">
+                {{else}}
+                    <input type="checkbox" name="enabled" value="false">
+                {{/if}}
+                enabled
+            </label>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a href="/admin/post" class="btn btn-danger">Cancel</a>
+    </form>
+{{/with}}
