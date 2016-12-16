@@ -6,10 +6,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const parser = require('body-parser');
 const path = require('path');
-const env = require('dotenv').config({
-    verbose: true,
-    path: path.join('config', '.env'),
-});
+const env = require('dotenv').config();
 const passport = require('passport');
 const flash = require('connect-flash');
 
