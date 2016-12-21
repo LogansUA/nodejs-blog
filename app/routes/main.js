@@ -1,10 +1,7 @@
-"use strict";
-
-const express = require('express');
+import * as express from 'express';
+import * as Post from './../models/post';
 
 let router = express.Router();
-
-let Post = require('./../models/post');
 
 router.get('/', (req, res) => {
     Post.find({enabled: true}, (err, result) => {
@@ -14,4 +11,4 @@ router.get('/', (req, res) => {
     });
 });
 
-module.exports = router;
+exports = router;

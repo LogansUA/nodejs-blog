@@ -1,7 +1,4 @@
-"use strict";
-
-const mongoose = require('mongoose');
-const slug = require('mongoose-slug-generator');
+import * as mongoose from 'mongoose';
 
 let postSchema = mongoose.Schema({
     title: {
@@ -29,4 +26,4 @@ let postSchema = mongoose.Schema({
 });
 let Post = mongoose.model('Post', postSchema);
 
-module.exports = Post;
+exports = Post;

@@ -1,8 +1,6 @@
-"use strict";
+import * as User from './../app/models/user';
 
-let User = require('./../app/models/user');
-
-module.exports = (passport) => {
+exports = (passport) => {
     passport.use(User.createStrategy());
 
     passport.serializeUser(User.serializeUser());

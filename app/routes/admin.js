@@ -1,11 +1,8 @@
-"use strict";
-
-const express = require('express');
-const constants = require('./../models/constants');
+import * as express from 'express';
+import * as constants from './../models/constants';
+import * as Post from './../models/post';
 
 let router = express.Router();
-
-let Post = require('./../models/post');
 
 router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated() && req.user.role == constants.ROLE_ADMIN) {
@@ -69,4 +66,4 @@ router.get('/post/:postSlug/delete', (req, res) => {
     res.redirect('/admin/post');
 });
 
-module.exports = router;
+exports = router;

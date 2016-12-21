@@ -1,8 +1,6 @@
-"use strict";
+import * as constants from './../../app/models/constants';
 
-let constants = require('./../../app/models/constants');
-
-module.exports = {
+exports = {
     truncate: (str, n, useWordBoundary) => {
         if (str) {
             let isTooLong = str.length > n,

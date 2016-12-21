@@ -1,7 +1,5 @@
-"use strict";
-
-const exphbs = require('express-handlebars');
-const helpers = require('./helpers');
+import * as exphbs from 'express-handlebars';
+import * as helpers from './helpers';
 
 let hbs = exphbs.create({
     defaultLayout: 'main',
@@ -9,4 +7,4 @@ let hbs = exphbs.create({
     helpers: helpers,
 });
 
-module.exports = hbs;
+exports = hbs;

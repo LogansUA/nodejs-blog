@@ -1,9 +1,6 @@
-"use strict";
-
-const mongoose = require('mongoose');
-const passportLocalMongoose = require('passport-local-mongoose');
-
-let constants = require('./constants');
+import * as mongoose from 'mongoose';
+import * as passportLocalMongoose from 'passport-local-mongoose';
+import * as constants from './constants';
 
 let User = new mongoose.Schema({
     email: {
@@ -29,4 +26,4 @@ User.plugin(passportLocalMongoose, {
     usernameField: 'email',
 });
 
-module.exports = mongoose.model('User', User);
+exports = mongoose.model('User', User);

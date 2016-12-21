@@ -1,11 +1,8 @@
-"use strict";
-
-const express = require('express');
-const passport = require('passport');
+import * as express from 'express';
+import * as passport from 'passport';
+import * as User from './../models/user';
 
 let router = express.Router();
-
-let User = require('./../models/user');
 
 router.route('/register')
     .get((req, res) => {
@@ -47,4 +44,4 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-module.exports = router;
+exports = router;

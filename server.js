@@ -1,14 +1,11 @@
-"use strict";
-
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const mongoose = require('mongoose');
-const parser = require('body-parser');
-const path = require('path');
+import * as express from 'express';
+import * as cookieParser from 'cookie-parser';
+import * as session from 'express-session';
+import * as mongoose from 'mongoose';
+import * as parser from 'body-parser';
 const env = require('dotenv').config();
-const passport = require('passport');
-const flash = require('connect-flash');
+import * as passport from 'passport';
+import * as flash from 'connect-flash';
 
 mongoose.connect(process.env.DB_URL);
 

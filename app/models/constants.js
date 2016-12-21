@@ -1,6 +1,4 @@
-"use strict";
-
-module.exports = {
+exports = {
     ROLE_USER: 'user',
     ROLE_ADMIN: 'admin',
 };
