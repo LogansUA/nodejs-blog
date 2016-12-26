@@ -1,5 +1,5 @@
 import * as exphbs from 'express-handlebars';
-import * as helpers from './helpers';
+import helpers from './helpers';
 
 let hbs = exphbs.create({
     defaultLayout: 'main',
@@ -7,4 +7,4 @@ let hbs = exphbs.create({
     helpers: helpers,
 });
 
-exports = hbs;
+export default hbs;

@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 let postSchema = mongoose.Schema({
     title: {
@@ -26,4 +26,4 @@ let postSchema = mongoose.Schema({
 });
 let Post = mongoose.model('Post', postSchema);
 
-exports = Post;
+export default Post;

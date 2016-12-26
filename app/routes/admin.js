@@ -1,6 +1,6 @@
-import * as express from 'express';
-import * as constants from './../models/constants';
-import * as Post from './../models/post';
+import express from 'express';
+import constants from './../models/constants';
+import Post from './../models/post';
 
 let router = express.Router();
 
@@ -66,4 +66,4 @@ router.get('/post/:postSlug/delete', (req, res) => {
     res.redirect('/admin/post');
 });
 
-exports = router;
+export default router;

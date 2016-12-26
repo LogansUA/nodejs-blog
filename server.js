@@ -1,16 +1,19 @@
-import * as express from 'express';
-import * as cookieParser from 'cookie-parser';
-import * as session from 'express-session';
-import * as mongoose from 'mongoose';
-import * as parser from 'body-parser';
-const env = require('dotenv').config();
-import * as passport from 'passport';
-import * as flash from 'connect-flash';
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import mongoose from 'mongoose';
+import parser from 'body-parser';
+import passport from 'passport';
+import flash from 'connect-flash';
+import handlebars from './config/handlebars/handlebars';
+import * as env from 'dotenv';
+import passportConfig from './config/passport';
 
+env.config();
 mongoose.connect(process.env.DB_URL);
 
 let app = express();
-app.engine('handlebars', require('./config/handlebars/handlebars').engine);
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(flash());
 app.use(cookieParser('keyboard cat'));
@@ -22,15 +25,15 @@ app.use(session({
 app.use(parser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
-require('./config/passport')(passport);
+passportConfig(passport);
 app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
 });
 
-let mainRouter = require('./app/routes/main');
-let userRouter = require('./app/routes/authentication');
-let adminRouter = require('./app/routes/admin');
+import mainRouter from './app/routes/main';
+import userRouter from './app/routes/authentication';
+import adminRouter from './app/routes/admin';
 
 app.use('/', mainRouter);
 app.use('/user', userRouter);

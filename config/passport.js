@@ -1,6 +1,6 @@
-import * as User from './../app/models/user';
+import User from './../app/models/user';
 
-exports = (passport) => {
+export default (passport) => {
     passport.use(User.createStrategy());
 
     passport.serializeUser(User.serializeUser());

@@ -1,6 +1,6 @@
-import * as constants from './../../app/models/constants';
+import constants from './../../app/models/constants';
 
-exports = {
+export default {
     truncate: (str, n, useWordBoundary) => {
         if (str) {
             let isTooLong = str.length > n,

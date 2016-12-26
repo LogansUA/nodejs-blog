@@ -1,6 +1,6 @@
-import * as express from 'express';
-import * as passport from 'passport';
-import * as User from './../models/user';
+import express from 'express';
+import passport from 'passport';
+import User from './../models/user';
 
 let router = express.Router();
 
@@ -44,4 +44,4 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
-exports = router;
+export default router;
