@@ -1,0 +1,9 @@
+extends ../main
+
+append title
+    |  - Post - View
+
+block content
+    .jumbotron
+        h1= post.title
+        p= post.description

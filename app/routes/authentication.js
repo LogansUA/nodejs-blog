@@ -9,7 +9,7 @@ router.route('/register')
         if (req.isAuthenticated()) {
             res.redirect('/');
         } else {
-            res.render('register');
+            res.render('user/register');
         }
     })
     .post((req, res) => {
@@ -32,7 +32,7 @@ router.route('/register')
 
 router.route('/login')
     .get((req, res) => {
-        res.render('login');
+        res.render('user/login');
     })
     .post(passport.authenticate('local', {
         successRedirect: '/admin/dashboard',

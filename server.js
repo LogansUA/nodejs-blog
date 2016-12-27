@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 import parser from 'body-parser';
 import passport from 'passport';
 import flash from 'connect-flash';
-import handlebars from './config/handlebars/handlebars';
 import * as env from 'dotenv';
 import passportConfig from './config/passport';
 
@@ -13,8 +12,7 @@ env.config();
 mongoose.connect(process.env.DB_URL);
 
 let app = express();
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+app.set('view engine', 'pug');
 app.use(flash());
 app.use(cookieParser('keyboard cat'));
 app.use(session({
@@ -47,7 +45,7 @@ app.use('/admin', (req, res, next) => {
 app.use((req, res) => {
     res.status(404);
 
-    res.render(404);
+    res.render('404');
 });
 
 app.listen(process.env.SERVER_PORT);

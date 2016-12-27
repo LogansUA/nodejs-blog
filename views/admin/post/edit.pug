@@ -1,0 +1,22 @@
+extends ../main
+
+append title
+    |  - Post - Edit
+
+block content
+    form(action='/admin/post/' + post.slug method='post')
+        .form-group
+            label(for='title') Title
+            input(type='text' class='form-control' placeholder='Title' name='title' value=post.title)
+        .form-group
+            label(for='slug') Slug
+            textarea(class='form-control' placeholder='Slug' name='slug')= post.slug
+        .form-group
+            label(for='description') Description
+            textarea(class='form-control' placeholder='Description' name='description')= post.description
+        .checkbox
+            label
+                input(type='checkbox' name='enabled')
+                | Enabled
+        button(type='submit' class='btn btn-success') Submit
+        a(href='/admin/post' class='btn btn-danger') Cancel

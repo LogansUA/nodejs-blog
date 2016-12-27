@@ -1,0 +1,16 @@
+extends ../main
+
+block title
+    |  Register
+
+block content
+    form(action='/user/register' method='post')
+        .form-group
+            label(for='email') Email address
+            input(type='email' class='form-control' name='email' placeholder='Email')
+
+        .form-group
+            label(for='password') Password
+            input(type='password' class='form-control' name='password' placeholder='Password')
+
+        button(type='submit' class='btn btn-default') Register

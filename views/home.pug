@@ -1,0 +1,9 @@
+extends main
+
+block content
+    each post in posts
+        .jumbotron
+            h1= post.title
+            p= post.description
+            a(href='/post/' + post.slug class='btn btn-default pull-right') Details
+            .clearfix

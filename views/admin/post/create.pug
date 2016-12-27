@@ -1,0 +1,19 @@
+extends ../main
+
+append title
+    |  - Post - Create
+
+block content
+    form(action='/admin/post' method='post')
+        .form-group
+            label(for='title') Title
+            input(type='text' class='form-control' placeholder='Title' name='title')
+        .form-group
+            label(for='description') Description
+            textarea(class='form-control' placeholder='Description' name='description')
+        .checkbox
+            label
+                input(type='checkbox' name='enabled')
+                | Enabled
+        button(type='submit' class='btn btn-success') Submit
+        a(href='/admin/post' class='btn btn-danger') Cancel

@@ -1,0 +1,29 @@
+extends ../main
+
+append title
+    |  - Post - List
+
+block content
+    div
+        a(href='/admin/post/create' class='btn btn-success pull-right') Create
+    .table-responsive
+        table.table
+            thead
+                tr
+                    th Title
+                    th Description
+                    th Enabled
+                    th Actions
+            tbody
+                each post in posts
+                    tr
+                        td
+                            span= post.title
+                        td
+                            span= post.description
+                        td
+                            span= post.enabled
+                        td
+                            a(href='/admin/post/' + post.slug class='btn btn-info') View
+                            a(href='/admin/post/' + post.slug + '/edit' class='btn btn-primary') Edit
+                            a(href='/admin/post/' + post.slug + '/delete' class='btn btn-danger') Delete
