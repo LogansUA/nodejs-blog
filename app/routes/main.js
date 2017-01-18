@@ -10,5 +10,15 @@ router.get('/', (req, res) => {
         });
     });
 });
+router.route('/post/:postSlug')
+    .get((req, res) => {
+        let slug = req.params.postSlug;
+
+        Post.findOne({slug: slug}, (err, result) => {
+            res.render('post/view', {
+                post: result
+            });
+        });
+    });
 
 export default router;

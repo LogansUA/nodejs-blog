@@ -1,6 +1,9 @@
 import express from 'express';
 import constants from './../models/constants';
 import Post from './../models/post';
+import formidable from 'formidable';
+import path from 'path';
+import fs from 'fs';
 
 let router = express.Router();
 
@@ -20,10 +23,30 @@ router.route('/post')
         });
     })
     .post((req, res) => {
-        let post = new Post(req.body);
+        let form = new formidable.IncomingForm();
 
-        Post.create(post, (err, result) => {
-            res.redirect('/admin/post');
+        form.uploadDir = path.join(__dirname, '/../../../uploads');
+        form.on('file', (field, file) => {
+            let extension = path.extname(file.name);
+            let filename = file.path + extension;
+
+            fs.rename(file.path, filename);
+        });
+        form.on('error', (err) => {
+            console.log('An error has occured: \n' + err);
+        });
+        form.parse(req, (err, fields, files) => {
+            let extension = path.extname(files.cover.name);
+            let name = path.basename(files.cover.path);
+            let filename = name + extension;
+
+            files.cover.path = filename;
+            fields.cover = filename;
+            let post = new Post(fields);
+
+            Post.create(post, (err, result) => {
+                res.redirect('/admin/post');
+            });
         });
     });
 router.get('/post/create', (req, res) => {

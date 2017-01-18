@@ -3,6 +3,8 @@ extends main
 block content
     each post in posts
         .jumbotron
+            if post.cover
+                img(src='/uploads/' + post.cover class='thumbnail')
             h1= post.title
             p= post.description
             a(href='/post/' + post.slug class='btn btn-default pull-right') Details

@@ -4,7 +4,10 @@ append title
     |  - Post - Create
 
 block content
-    form(action='/admin/post' method='post')
+    form(action='/admin/post' method='post' enctype='multipart/form-data')
+        .form-group
+            label(for='cover') Cover
+            input(type='file' name='cover')
         .form-group
             label(for='title') Title
             input(type='text' class='form-control' placeholder='Title' name='title')

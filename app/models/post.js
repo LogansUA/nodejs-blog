@@ -9,6 +9,10 @@ let postSchema = mongoose.Schema({
         max: 250,
         required: true,
     },
+    cover: {
+        type: String,
+        max: 50,
+    },
     slug: {
         type: String,
         slug: 'title'
