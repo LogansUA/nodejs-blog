@@ -1,5 +1,6 @@
 import express from 'express';
 import Post from './../models/post';
+import FroalaEditor from 'wysiwyg-editor-node-sdk';
 
 let router = express.Router();
 
@@ -20,5 +21,14 @@ router.route('/post/:postSlug')
             });
         });
     });
+router.post('/upload_image', function (req, res) {
+    FroalaEditor.Image.upload(req, '/../uploads/', (err, data) => {
+        if (err) {
+            return res.send(JSON.stringify(err));
+        }
+
+        res.send(data);
+    });
+});
 
 export default router;

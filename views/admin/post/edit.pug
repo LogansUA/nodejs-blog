@@ -10,10 +10,10 @@ block content
             input(type='text' class='form-control' placeholder='Title' name='title' value=post.title)
         .form-group
             label(for='slug') Slug
-            textarea(class='form-control' placeholder='Slug' name='slug')= post.slug
+            input(type='text' class='form-control' placeholder='Slug' name='slug' value=post.slug)
         .form-group
             label(for='description') Description
-            textarea(class='form-control' placeholder='Description' name='description')= post.description
+            textarea(class='form-control froala-editor' placeholder='Description' name='description')= post.description
         .checkbox
             label
                 input(type='checkbox' name='enabled')

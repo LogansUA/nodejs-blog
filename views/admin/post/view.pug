@@ -8,4 +8,4 @@ block content
         if post.cover
             img(src='/uploads/' + post.cover class='thumbnail')
         h1= post.title
-        p= post.description
+        .content.fr-view !{post.description}

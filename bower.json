@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-blog",
+  "version": "1.0.0",
+  "description": "NodeJS blog",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "froala-wysiwyg-editor": "^2.3.4"
+  }
+}

@@ -14,12 +14,14 @@ mongoose.connect(process.env.DB_URL);
 
 let app = express();
 app.use(parser.urlencoded({extended: true}));
+app.use(cookieParser());
 app.use(session({
     secret: 'Secret',
     resave: true,
     saveUninitialized: true,
 }));
 app.use('/static', express.static(path.join(__dirname, '/../public')));
+app.use('/static', express.static(path.join(__dirname, '/../bower_components')));
 app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
 app.use(flash());
 app.use(cookieParser('keyboard cat'));
