@@ -21,13 +21,31 @@ router.route('/post/:postSlug')
             });
         });
     });
-router.post('/upload_image', function (req, res) {
+router.get('/load_images', (req, res) => {
+    FroalaEditor.Image.list('/../uploads/', (err, data) => {
+        if (err) {
+            return res.status(404).end(JSON.stringify(err));
+        }
+
+        return res.send(data);
+    });
+});
+router.post('/upload_image', (req, res) => {
     FroalaEditor.Image.upload(req, '/../uploads/', (err, data) => {
         if (err) {
             return res.send(JSON.stringify(err));
         }
 
         res.send(data);
+    });
+});
+router.post('/delete_image', (req, res) => {
+    FroalaEditor.Image.delete(req.body.src, (err) => {
+        if (err) {
+            return res.status(404).end(JSON.stringify(err));
+        }
+
+        return res.end();
     });
 });
 

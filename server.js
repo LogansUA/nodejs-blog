@@ -53,4 +53,8 @@ app.use((req, res) => {
     res.render('404');
 });
 
-app.listen(process.env.SERVER_PORT);
+let port = process.env.SERVER_PORT || 5000;
+
+app.listen(port, () => {
+    console.log(`Server is running on ${port} port`);
+});
