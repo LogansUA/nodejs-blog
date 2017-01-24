@@ -1,13 +1,15 @@
-.left-side {
+#left-side {
     position: fixed;
     top: 150px;
+    width: 25%;
 }
-.left-side ul {
+#left-side ul {
     list-style-type: none;
     margin: 0;
 }
-.right-side {
+#right-side {
     float: right;
+    width: 75%;
 }
 .thumbnail {
     width: 100%;

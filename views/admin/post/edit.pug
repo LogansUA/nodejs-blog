@@ -16,7 +16,10 @@ block content
             textarea(class='form-control froala-editor' placeholder='Description' name='description')= post.description
         .checkbox
             label
-                input(type='checkbox' name='enabled')
+                if post.enabled
+                    input(type='checkbox' name='enabled' checked)
+                else
+                    input(type='checkbox' name='enabled')
                 | Enabled
         button(type='submit' class='btn btn-success') Submit
         a(href='/admin/post' class='btn btn-danger') Cancel

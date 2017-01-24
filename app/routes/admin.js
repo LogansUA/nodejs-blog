@@ -42,6 +42,9 @@ router.route('/post')
 
             files.cover.path = filename;
             fields.cover = filename;
+
+            // Convert checkbox value to boolean
+            fields.enabled = !!fields.enabled;
             let post = new Post(fields);
 
             Post.create(post, (err, result) => {
@@ -64,6 +67,10 @@ router.route('/post/:postSlug')
     })
     .post((req, res) => {
         let slug = req.params.postSlug;
+        let fields = req.body;
+
+        // Convert checkbox value to boolean
+        fields.enabled = !!fields.enabled;
 
         Post.update({slug: slug}, {$set: req.body}, (err, result) => {
         });
@@ -83,8 +90,7 @@ router.get('/post/:postSlug/edit', (req, res) => {
 router.get('/post/:postSlug/delete', (req, res) => {
     let slug = req.params.postSlug;
 
-    Post.remove({slug: slug}, (err, result) => {
-    });
+    Post.remove({slug: slug});
 
     res.redirect('/admin/post');
 });

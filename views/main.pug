@@ -13,11 +13,11 @@ html
             link(rel='stylesheet' type='text/css' href='/static/froala-wysiwyg-editor/css/froala_style.min.css')
             link(rel='stylesheet' type='text/css' href='/static/froala-wysiwyg-editor/css/plugins/image.min.css')
     body
-        .col-md-3.left-side
+        div(id='left-side')
             block header
                 include header
 
-        .container.col-md-9.right-side
+        div.container(id='right-side')
             block content
 
         block javascripts

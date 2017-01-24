@@ -20,15 +20,14 @@ let postSchema = mongoose.Schema({
     description: String,
     enabled: {
         type: Boolean,
-        default: true
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
     updatedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
 });
 let Post = mongoose.model('Post', postSchema);
