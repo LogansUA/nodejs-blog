@@ -29,6 +29,14 @@ let postSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    _createdBy: {
+        type: String,
+        ref: 'User',
+    },
+    _updatedBy: {
+        type: String,
+        ref: 'User',
+    },
 });
 let Post = mongoose.model('Post', postSchema);
 

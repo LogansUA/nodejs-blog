@@ -5,7 +5,9 @@ append title
 
 block content
     .jumbotron
+        include details
         if post.cover
             img(src='/uploads/' + post.cover class='thumbnail')
         h1= post.title
         .content.fr-view !{post.description}
+        include details

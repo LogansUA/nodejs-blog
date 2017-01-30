@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 import passportLocalMongoose from 'passport-local-mongoose';
 import constants from './constants';
 
-let User = new mongoose.Schema({
+let Schema = mongoose.Schema;
+let User = new Schema({
     email: {
         type: String,
         required: '{PATH} is required!',
@@ -20,6 +21,12 @@ let User = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    posts : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Post'
+        }
+    ]
 });
 
 User.plugin(passportLocalMongoose, {

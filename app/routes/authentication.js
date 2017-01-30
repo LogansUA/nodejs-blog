@@ -18,6 +18,7 @@ router.route('/register')
         } else {
             User.register(new User({
                 email: req.body.email,
+                updatedAt: Date.now(),
             }), req.body.password, (err, user) => {
                 if (err) {
                     console.error(err);
