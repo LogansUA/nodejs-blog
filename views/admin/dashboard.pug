@@ -2,3 +2,17 @@ extends main
 
 append title
     |  - Dashboard
+
+block content
+    .col-md-6
+        .panel.panel-primary
+            .panel-heading Posts
+            .panel-footer
+                a(href='/admin/post' class='btn btn-link') List
+                a(href='/admin/post/create' class='btn btn-link') Create
+    .col-md-6
+        .panel.panel-primary
+            .panel-heading Users
+            .panel-footer
+                a(href='/admin/user' class='btn btn-link') List
+                a(href='/admin/user/create' class='btn btn-link') Create
