@@ -1,0 +1,24 @@
+extends ../main
+
+append title
+    |  - User - List
+
+block content
+    .row
+        a(href='/admin/user/create' class='btn btn-success pull-right') Create
+
+    .row
+        .table-responsive
+            table.table.table-striped.table-bordered
+                thead
+                    tr
+                        th Email
+                        th(width='150px') Actions
+                tbody
+                    each user in users
+                        tr
+                            td
+                                span= user.email
+                            td
+                                a(href='/admin/user/' + user._id + '/edit' class='btn btn-primary btn-xs') Edit
+                                a(href='/admin/user/' + user._id + '/delete' class='btn btn-danger btn-xs') Delete

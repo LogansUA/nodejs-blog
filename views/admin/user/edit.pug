@@ -1,0 +1,15 @@
+extends ../main
+
+append title
+    |  - User - Edit
+
+block content
+    form(action='/admin/user/' + person._id method='post')
+        .form-group
+            label(for='email') Email
+            input(type='email' class='form-control' placeholder='Email' name='email' value=person.email)
+        .form-group
+            label(for='password') Password
+            input(type='password' class='form-control' placeholder='Password' name='password')
+        button(type='submit' class='btn btn-success') Submit
+        a(href='/admin/user' class='btn btn-danger') Cancel
